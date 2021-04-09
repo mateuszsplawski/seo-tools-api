@@ -1,11 +1,13 @@
 const express = require("express");
+
+const router = express.Router();
 const puppeteer = require("puppeteer");
-const app = express();
 
-const port = 3000;
+router.get("/", (req, res) => {
+  res.send("Hello from API");
+});
 
-app.listen(port, () => console.log(`listening @${port}`));
-app.get("/meta/:url", (req, res) => {
+router.get("/meta/:url", (req, res) => {
   (async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -29,3 +31,5 @@ app.get("/meta/:url", (req, res) => {
     await browser.close();
   })();
 });
+
+module.exports = router;
