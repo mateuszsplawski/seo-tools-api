@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /Users/matek/.yarn/bin/yarn.js add http-serverless
+  /usr/local/bin/node /Users/matek/.yarn/bin/yarn.js add zip-it-and-ship-it
 
 PATH: 
   /Users/matek/.yarn/bin:/Users/matek/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/http-serverless: Not found
+  Error: https://registry.yarnpkg.com/zip-it-and-ship-it: Not found
       at Request.params.callback [as _callback] (/Users/matek/.yarn/lib/cli.js:66988:18)
       at Request.self.callback (/Users/matek/.yarn/lib/cli.js:140749:22)
       at Request.emit (events.js:315:20)
@@ -28,17 +28,19 @@ Trace:
 
 npm manifest: 
   {
+    "dependencies": {
+      "express": "^4.17.1",
+      "netlify-lambda": "^2.0.3",
+      "puppeteer": "^8.0.0",
+      "serverless-http": "^2.7.0"
+    },
     "name": "seo-tools-api",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "dependencies": {
-      "express": "^4.17.1",
-      "netlify-lambda": "^2.0.3",
-      "puppeteer": "^8.0.0"
-    },
-    "devDependencies": {
-      "nodemon": "^2.0.7"
+    "scripts": {
+      "start":"./node_modules/.bin/netlify-lambda serve src",
+      "build":"./node_modules/.bin/netlify-lambda build src"
     }
   }
 
@@ -918,6 +920,11 @@ Lockfile:
     integrity sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA==
     dependencies:
       defer-to-connect "^1.0.1"
+  
+  "@types/aws-lambda@^8.10.56":
+    version "8.10.75"
+    resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.75.tgz#93b4e688db8a45755018561a3212e7766c0fef57"
+    integrity sha512-orOKSsIVUMsAbKgbSX2ST3FwQt9pxinHVCAIAVl4SmmTxmki2Gu+cGqobMD3eYwDV5FV0YNtaXyxnvE9pLrKTw==
   
   "@types/json-schema@^7.0.5":
     version "7.0.7"
@@ -4200,6 +4207,13 @@ Lockfile:
       escape-html "~1.0.3"
       parseurl "~1.3.3"
       send "0.17.1"
+  
+  serverless-http@^2.7.0:
+    version "2.7.0"
+    resolved "https://registry.yarnpkg.com/serverless-http/-/serverless-http-2.7.0.tgz#352ca38cbbba58dc71dcfb11bb27c92c3c81fe69"
+    integrity sha512-iWq0z1X2Xkuvz6wL305uCux/SypbojHlYsB5bzmF5TqoLYsdvMNIoCsgtWjwqWoo3AR2cjw3zAmHN2+U6mF99Q==
+    optionalDependencies:
+      "@types/aws-lambda" "^8.10.56"
   
   set-value@^2.0.0, set-value@^2.0.1:
     version "2.0.1"
