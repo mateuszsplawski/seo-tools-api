@@ -1,12 +1,14 @@
-{"name": "seo-tools-api",
-"version": "1.0.0",
-"main": "index.js",
-"license": "MIT",
-"scripts": {
-  "start": "./node_modules/.bin/netlify-lambda serve src",
-  "build": "./node_modules/.bin/netlify-lambda build src"
+{
+  "name": "seo-tools-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "encoding": "^0.1.13",
     "express": "^4.17.1",
     "netlify-lambda": "^2.0.3",
